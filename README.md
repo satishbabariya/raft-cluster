@@ -20,11 +20,12 @@ raft-cluster/
 ```
 
 ## Running the Nodes
+
 Run each node with the appropriate configuration file:
 
 ```
-go run main.go -config=config/config-node1.yaml
-go run main.go -config=config/config-node2.yaml
+go run main.go --config=config/config-node1.yaml
+go run main.go --config=config/config-node2.yaml
 ```
 
 ## Raft Cluster Diagram
@@ -34,7 +35,7 @@ graph TD;
     A[Node 1] -->|Replicates logs| B[Node 2];
     B -->|Replicates logs| C[Node 3];
     C -->|Replicates logs| A;
-    
+
     subgraph Node1
         direction TB
         A[Node 1]
@@ -42,7 +43,7 @@ graph TD;
         ABindAddr[BindAddr: 127.0.0.1:5001]
         ADataDir[DataDir: /tmp/node1]
     end
-    
+
     subgraph Node2
         direction TB
         B[Node 2]
@@ -50,7 +51,7 @@ graph TD;
         BBindAddr[BindAddr: 127.0.0.1:5002]
         BDataDir[DataDir: /tmp/node2]
     end
-    
+
     subgraph Node3
         direction TB
         C[Node 3]
@@ -58,3 +59,4 @@ graph TD;
         CBindAddr[BindAddr: 127.0.0.1:5003]
         CDataDir[DataDir: /tmp/node3]
     end
+```
