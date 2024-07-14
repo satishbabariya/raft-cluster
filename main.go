@@ -28,10 +28,12 @@ func main() {
 			}
 
 			for {
-				// Simulate log entries
-				time.Sleep(5 * time.Second)
-				logEntry := []byte("Event from " + config.NodeID + " at " + time.Now().String())
-				raftNode.Apply(logEntry, 10*time.Second)
+				if config.NodeID == "node1" {
+					// Simulate log entries
+					time.Sleep(5 * time.Second)
+					logEntry := []byte("Event from " + config.NodeID + " at " + time.Now().String())
+					raftNode.Apply(logEntry, 10*time.Second)
+				}
 			}
 		},
 	}

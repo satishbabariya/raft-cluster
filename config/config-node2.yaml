@@ -2,7 +2,7 @@
 node:
   id: "node2"
   bind_addr: "127.0.0.1:5002"
-  data_dir: "/tmp/node2"
+  data_dir: "./tmp/node2"
   peers:
     - "127.0.0.1:5001"
     - "127.0.0.1:5002"
